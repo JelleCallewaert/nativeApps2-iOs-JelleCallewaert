@@ -9,5 +9,32 @@
 import UIKit
 
 class ListViewController: UITableViewController {
+    var categories = [Categorie]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let savedCategories = Categorie.loadCategories() {
+            categories = savedCategories
+        } else {
+            categories = Categorie.loadSampleCategories()
+        }
+    }
+    
+    // TableView overrides
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.categories.count
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories[section].spelen.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpelCell")
+            else { fatalError("Could not dequeue") }
+        let spel = self.categories[indexPath.section].spelen[indexPath.row]
+        cell.textLabel?.text = spel.titel
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.categories[section].naam.rawValue
+    }
 }
