@@ -6,4 +6,8 @@
 //  Copyright © 2019 Jelle Callewaert. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ListViewController: UITableViewController {
+    
+}
