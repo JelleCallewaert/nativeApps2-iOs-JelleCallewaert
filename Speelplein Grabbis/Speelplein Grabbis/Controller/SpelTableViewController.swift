@@ -11,6 +11,10 @@ import UIKit
 class SpelTableViewController: UITableViewController {
     var secties = [Sectie]()
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        return
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedSecties = Sectie.loadSecties() {
