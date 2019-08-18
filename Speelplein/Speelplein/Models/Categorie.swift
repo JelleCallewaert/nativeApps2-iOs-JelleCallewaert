@@ -38,10 +38,10 @@ struct Categorie {
             Spel(titel: "kastaards3", beschrijving: "?"),
             ]
         let Categories = [
-            Categorie(naam: PossibleCategorie.kleuters, spelen: kleuterspelen),
-            Categorie(naam: PossibleCategorie.creatief, spelen: creatiefspelen),
-            Categorie(naam: PossibleCategorie.actief, spelen: actiefspelen),
-            Categorie(naam: PossibleCategorie.kastaards, spelen: kastaardsspelen),
+            Categorie(naam: .kleuters, spelen: kleuterspelen),
+            Categorie(naam: .creatief, spelen: creatiefspelen),
+            Categorie(naam: .actief, spelen: actiefspelen),
+            Categorie(naam: .kastaards, spelen: kastaardsspelen),
             ]
         return Categories
     }
