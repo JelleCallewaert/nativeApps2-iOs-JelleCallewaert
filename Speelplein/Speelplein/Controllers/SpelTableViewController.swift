@@ -27,6 +27,9 @@ class SpelTableViewController: UITableViewController {
     @IBAction func titelFieldReturnPressed(_ sender: UITextField) {
         spelTitelField.resignFirstResponder()
     }
+    @IBAction func categorieSwitchClicked(_ sender: UISwitch) {
+        changeSaveButtonState()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
