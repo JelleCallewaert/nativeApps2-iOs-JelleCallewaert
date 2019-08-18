@@ -179,7 +179,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XI6-lw-dlx">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="kleuterSwitchClicked:" destination="bli-8B-EKh" eventType="valueChanged" id="OTb-i6-2Ba"/>
+                                                                <action selector="categorieSwitchClicked:" destination="bli-8B-EKh" eventType="valueChanged" id="Juf-ft-ZPX"/>
                                                             </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kleuters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOt-RY-6Wi">
