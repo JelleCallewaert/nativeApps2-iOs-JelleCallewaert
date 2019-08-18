@@ -12,7 +12,35 @@ class ListViewController: UITableViewController {
     var categories = [Categorie]()
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        
+        guard segue.identifier == "saveNieuwSpelUnwind" else { return }
+        let sourceViewController = segue.source as! SpelTableViewController
+        if let spel = sourceViewController.spel {
+            
+            for cat: PossibleCategorie in sourceViewController.categories {
+                print(cat.rawValue)
+                var indexPath: IndexPath!
+                if cat == .kleuters {
+                    indexPath = IndexPath(row: self.categories[0].spelen.count, section: 0)
+                    self.categories[0].spelen.append(spel)
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+                if cat == .creatief {
+                    indexPath = IndexPath(row: self.categories[1].spelen.count, section: 1)
+                    self.categories[1].spelen.append(spel)
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+                if cat == .actief {
+                    indexPath = IndexPath(row: self.categories[2].spelen.count, section: 2)
+                    self.categories[2].spelen.append(spel)
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+                if cat == .kastaards {
+                    indexPath = IndexPath(row: self.categories[3].spelen.count, section: 3)
+                    self.categories[3].spelen.append(spel)
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {

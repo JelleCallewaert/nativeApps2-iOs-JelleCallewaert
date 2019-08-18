@@ -10,6 +10,7 @@ import UIKit
 
 class SpelTableViewController: UITableViewController {
     var spel: Spel?
+    var categories = [PossibleCategorie]()
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -28,6 +29,7 @@ class SpelTableViewController: UITableViewController {
         spelTitelField.resignFirstResponder()
     }
     @IBAction func categorieSwitchClicked(_ sender: UISwitch) {
+        changeCategories()
         changeSaveButtonState()
     }
     
@@ -44,5 +46,31 @@ class SpelTableViewController: UITableViewController {
         let enabled = !titel.isEmpty
             && categorieSelected
         saveButton.isEnabled = enabled
+    }
+    func changeCategories() {
+        var selectedCategories = [PossibleCategorie]()
+        if kleuterSwitch.isOn {
+            selectedCategories.append(.kleuters)
+        }
+        if creatiefSwitch.isOn {
+            selectedCategories.append(.creatief)
+        }
+        if actiefSwitch.isOn {
+            selectedCategories.append(.actief)
+        }
+        if kastaardsSwitch.isOn {
+            selectedCategories.append(.kastaards)
+        }
+        categories = selectedCategories
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == "saveNieuwSpelUnwind" else { return }
+        
+        let titel = spelTitelField.text!
+        let beschrijving = spelBeschrijvingField.text
+        
+        spel = Spel(titel: titel, beschrijving: beschrijving)
     }
 }

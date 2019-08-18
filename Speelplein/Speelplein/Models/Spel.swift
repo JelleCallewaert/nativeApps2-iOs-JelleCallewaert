@@ -10,5 +10,5 @@ import Foundation
 
 struct Spel {
     var titel: String
-    var beschrijving: String
+    var beschrijving: String?
 }
