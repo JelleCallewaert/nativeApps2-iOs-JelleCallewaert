@@ -10,7 +10,7 @@ import UIKit
 
 class SpelTableViewController: UITableViewController {
     var spel: Spel?
-    var categories = [PossibleCategorie]()
+    var selectedCategories = [PossibleCategorie]()
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -36,15 +36,16 @@ class SpelTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeSaveButtonState()
+        changeCategories()
     }
     
     // Helper function
     func changeSaveButtonState() {
         let titel = spelTitelField.text ?? ""
-        let categorieSelected = kleuterSwitch.isOn || creatiefSwitch.isOn || actiefSwitch.isOn || kastaardsSwitch.isOn
+        let aCategorieSelected = kleuterSwitch.isOn || creatiefSwitch.isOn || actiefSwitch.isOn || kastaardsSwitch.isOn
         
         let enabled = !titel.isEmpty
-            && categorieSelected
+            && aCategorieSelected
         saveButton.isEnabled = enabled
     }
     func changeCategories() {
@@ -61,7 +62,7 @@ class SpelTableViewController: UITableViewController {
         if kastaardsSwitch.isOn {
             selectedCategories.append(.kastaards)
         }
-        categories = selectedCategories
+        self.selectedCategories = selectedCategories
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

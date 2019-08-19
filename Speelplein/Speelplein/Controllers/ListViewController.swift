@@ -16,7 +16,7 @@ class ListViewController: UITableViewController {
         let sourceViewController = segue.source as! SpelTableViewController
         if let spel = sourceViewController.spel {
             
-            for cat: PossibleCategorie in sourceViewController.categories {
+            for cat: PossibleCategorie in sourceViewController.selectedCategories {
                 print(cat.rawValue)
                 var indexPath: IndexPath!
                 if cat == .kleuters {
