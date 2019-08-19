@@ -111,18 +111,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="yn6-uV-UIY">
-                                <rect key="frame" x="166.5" y="293" width="42" height="81"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="yn6-uV-UIY">
+                                <rect key="frame" x="16" y="243.5" width="343" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2r-oC-Ukw">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2r-oC-Ukw">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9F-PL-4az">
-                                        <rect key="frame" x="0.0" y="60.5" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9F-PL-4az">
+                                        <rect key="frame" x="0.0" y="156" width="343" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -131,8 +131,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerY" secondItem="KMb-So-q2x" secondAttribute="centerY" id="Osu-1U-AjZ"/>
-                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerX" secondItem="KMb-So-q2x" secondAttribute="centerX" id="jnK-cM-Usk"/>
+                            <constraint firstItem="yn6-uV-UIY" firstAttribute="leading" secondItem="c7h-Rg-MfB" secondAttribute="leading" constant="16" id="1ph-0z-fE0"/>
+                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerY" secondItem="KMb-So-q2x" secondAttribute="centerY" id="41Q-vX-id2"/>
+                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerX" secondItem="KMb-So-q2x" secondAttribute="centerX" id="7xO-97-PTj"/>
+                            <constraint firstItem="c7h-Rg-MfB" firstAttribute="trailing" secondItem="yn6-uV-UIY" secondAttribute="trailing" constant="16" id="9tw-mi-EnM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c7h-Rg-MfB"/>
                     </view>
@@ -143,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ0-Br-K25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="360"/>
+            <point key="canvasLocation" x="2861.5999999999999" y="359.37031484257875"/>
         </scene>
         <!--Nieuw Spel-->
         <scene sceneID="MuI-NH-NKt">
