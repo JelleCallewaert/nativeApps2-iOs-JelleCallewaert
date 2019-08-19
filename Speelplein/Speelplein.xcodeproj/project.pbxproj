@@ -16,6 +16,7 @@
 		60F4440123083269009640B1 /* Spel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4440023083269009640B1 /* Spel.swift */; };
 		60F4440323083293009640B1 /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4440223083293009640B1 /* Categorie.swift */; };
 		60F444052308A8DB009640B1 /* SpelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F444042308A8DB009640B1 /* SpelTableViewController.swift */; };
+		60F44407230ABB32009640B1 /* SpelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F44406230ABB32009640B1 /* SpelDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		60F4440023083269009640B1 /* Spel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spel.swift; sourceTree = "<group>"; };
 		60F4440223083293009640B1 /* Categorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
 		60F444042308A8DB009640B1 /* SpelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpelTableViewController.swift; sourceTree = "<group>"; };
+		60F44406230ABB32009640B1 /* SpelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpelDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				6046CA0C23082BCB00297047 /* RandomViewController.swift */,
 				6046CA1E23082CC100297047 /* ListViewController.swift */,
 				60F444042308A8DB009640B1 /* SpelTableViewController.swift */,
+				60F44406230ABB32009640B1 /* SpelDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				6046CA0D23082BCB00297047 /* RandomViewController.swift in Sources */,
 				60F444052308A8DB009640B1 /* SpelTableViewController.swift in Sources */,
 				6046CA1F23082CC100297047 /* ListViewController.swift in Sources */,
+				60F44407230ABB32009640B1 /* SpelDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

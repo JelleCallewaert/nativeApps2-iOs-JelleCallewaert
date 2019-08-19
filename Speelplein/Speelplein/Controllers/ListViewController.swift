@@ -43,6 +43,15 @@ class ListViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let spelDetailsViewController = segue.destination as! SpelDetailsViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
+            spelDetailsViewController.spel = selectedSpel
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedCategories = Categorie.loadCategories() {

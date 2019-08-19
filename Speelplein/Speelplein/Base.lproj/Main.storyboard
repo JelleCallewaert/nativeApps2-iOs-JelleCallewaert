@@ -81,6 +81,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="6mW-LI-suY" kind="show" identifier="showDetails" id="3qu-zC-WBV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -99,6 +102,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ez7-ax-1bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1887" y="361"/>
+        </scene>
+        <!--Spel Details View Controller-->
+        <scene sceneID="pln-RI-iiW">
+            <objects>
+                <viewController id="6mW-LI-suY" customClass="SpelDetailsViewController" customModule="Speelplein" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KMb-So-q2x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="yn6-uV-UIY">
+                                <rect key="frame" x="166.5" y="293" width="42" height="81"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2r-oC-Ukw">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9F-PL-4az">
+                                        <rect key="frame" x="0.0" y="60.5" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerY" secondItem="KMb-So-q2x" secondAttribute="centerY" id="Osu-1U-AjZ"/>
+                            <constraint firstItem="yn6-uV-UIY" firstAttribute="centerX" secondItem="KMb-So-q2x" secondAttribute="centerX" id="jnK-cM-Usk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c7h-Rg-MfB"/>
+                    </view>
+                    <connections>
+                        <outlet property="beschrijvingLabel" destination="S9F-PL-4az" id="aKg-fZ-5s2"/>
+                        <outlet property="titelLabel" destination="d2r-oC-Ukw" id="lHD-kA-RtJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZ0-Br-K25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2862" y="360"/>
         </scene>
         <!--Nieuw Spel-->
         <scene sceneID="MuI-NH-NKt">
