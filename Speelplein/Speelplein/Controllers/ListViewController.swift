@@ -65,6 +65,7 @@ class ListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
         if let savedCategories = Categorie.loadCategories() {
             categories = savedCategories
         } else {
@@ -88,5 +89,11 @@ class ListViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.categories[section].naam.rawValue
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            categories[indexPath.section].spelen.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
