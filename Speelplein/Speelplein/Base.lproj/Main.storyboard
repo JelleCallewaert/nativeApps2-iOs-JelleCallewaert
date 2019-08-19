@@ -146,7 +146,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Mbm-tB-rSJ">
                             <connections>
-                                <segue destination="AMz-WQ-9Yk" kind="presentation" id="9R8-cn-o6F"/>
+                                <segue destination="AMz-WQ-9Yk" kind="presentation" identifier="EditSpel" id="9R8-cn-o6F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

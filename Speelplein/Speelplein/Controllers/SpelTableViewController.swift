@@ -35,6 +35,20 @@ class SpelTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let spel = spel {
+            navigationItem.title = "Edit spel"
+            spelTitelField.text = spel.titel
+            spelBeschrijvingField.text = spel.beschrijving
+            let cat = selectedCategories[0]
+            if cat != .kleuters { kleuterSwitch.isOn = false }
+            if cat != .actief { actiefSwitch.isOn = false }
+            if cat != .creatief { creatiefSwitch.isOn = false }
+            if cat != .kastaards { kastaardsSwitch.isOn = false }
+            kleuterSwitch.isEnabled = false
+            actiefSwitch.isEnabled = false
+            creatiefSwitch.isEnabled = false
+            kastaardsSwitch.isEnabled = false
+        }
         changeSaveButtonState()
         changeCategories()
     }

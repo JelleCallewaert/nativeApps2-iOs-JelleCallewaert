@@ -15,32 +15,37 @@ class ListViewController: UITableViewController {
         guard segue.identifier == "saveNieuwSpelUnwind" else { return }
         let sourceViewController = segue.source as! SpelTableViewController
         if let spel = sourceViewController.spel {
-            
-            for cat: PossibleCategorie in sourceViewController.selectedCategories {
-                print(cat.rawValue)
-                var indexPath: IndexPath!
-                if cat == .kleuters {
-                    indexPath = IndexPath(row: self.categories[0].spelen.count, section: 0)
-                    self.categories[0].spelen.append(spel)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                }
-                if cat == .creatief {
-                    indexPath = IndexPath(row: self.categories[1].spelen.count, section: 1)
-                    self.categories[1].spelen.append(spel)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                }
-                if cat == .actief {
-                    indexPath = IndexPath(row: self.categories[2].spelen.count, section: 2)
-                    self.categories[2].spelen.append(spel)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
-                }
-                if cat == .kastaards {
-                    indexPath = IndexPath(row: self.categories[3].spelen.count, section: 3)
-                    self.categories[3].spelen.append(spel)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                categories[selectedIndexPath.section].spelen[selectedIndexPath.row] = spel
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                for cat: PossibleCategorie in sourceViewController.selectedCategories {
+                    var newIndexPath: IndexPath!
+                    if cat == .kleuters {
+                        newIndexPath = IndexPath(row: self.categories[0].spelen.count, section: 0)
+                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                    }
+                    if cat == .creatief {
+                        newIndexPath = IndexPath(row: self.categories[1].spelen.count, section: 1)
+                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                    }
+                    if cat == .actief {
+                        newIndexPath = IndexPath(row: self.categories[2].spelen.count, section: 2)
+                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                    }
+                    if cat == .kastaards {
+                        newIndexPath = IndexPath(row: self.categories[3].spelen.count, section: 3)
+                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                    }
                 }
             }
         }
+    }
+    
+    // Helper functions
+    func addOrEditCell(indexPath: IndexPath, spel: Spel) {
+        self.categories[indexPath.section].spelen.append(spel)
+        tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +57,7 @@ class ListViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow!
             let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
             spelDetailsViewController.spel = selectedSpel
+            spelDetailsViewController.categorie = categories[indexPath.section].naam
         }
     }
     

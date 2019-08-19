@@ -10,9 +10,19 @@ import UIKit
 
 class SpelDetailsViewController: UIViewController {
     var spel: Spel?
+    var categorie: PossibleCategorie?
     
     @IBOutlet weak var titelLabel: UILabel!
     @IBOutlet weak var beschrijvingLabel: UILabel!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditSpel" {
+            let navigationController = segue.destination as! UINavigationController
+            let spelTableViewController = navigationController.topViewController as! SpelTableViewController
+            spelTableViewController.spel = spel
+            spelTableViewController.selectedCategories = [categorie] as! [PossibleCategorie]
+        }
+    }
     
     override func viewDidLoad() {
         titelLabel.text = spel?.titel
