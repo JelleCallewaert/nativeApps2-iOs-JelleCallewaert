@@ -12,13 +12,15 @@ class ListViewController: UITableViewController {
     var categories = [Categorie]()
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        guard segue.identifier == "saveNieuwSpelUnwind" else { return }
+        guard segue.identifier == "saveSpelUnwind" else { return }
         let sourceViewController = segue.source as! SpelTableViewController
         if let spel = sourceViewController.spel {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // EDIT
                 categories[selectedIndexPath.section].spelen[selectedIndexPath.row] = spel
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
+                // NIEUW
                 for cat: PossibleCategorie in sourceViewController.selectedCategories {
                     var newIndexPath: IndexPath!
                     if cat == .kleuters {

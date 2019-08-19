@@ -81,7 +81,7 @@ class SpelTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard segue.identifier == "saveNieuwSpelUnwind" else { return }
+        guard segue.identifier == "saveSpelUnwind" else { return }
         
         let titel = spelTitelField.text!
         let beschrijving = spelBeschrijvingField.text

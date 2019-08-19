@@ -382,7 +382,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="jyz-OU-B1C">
                             <connections>
-                                <segue destination="KER-uD-Q7H" kind="unwind" identifier="saveNieuwSpelUnwind" unwindAction="unwindToListWithSegue:" id="KXk-Tv-cwy"/>
+                                <segue destination="KER-uD-Q7H" kind="unwind" identifier="saveSpelUnwind" unwindAction="unwindToListWithSegue:" id="KXk-Tv-cwy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
