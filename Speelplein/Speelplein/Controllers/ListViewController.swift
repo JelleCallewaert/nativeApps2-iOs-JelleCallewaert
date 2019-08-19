@@ -45,7 +45,10 @@ class ListViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
-            let spelDetailsViewController = segue.destination as! SpelDetailsViewController
+            // SOURCE: https://stackoverflow.com/questions/28788416/swift-prepareforsegue-with-navigation-controller
+            let navigationController = segue.destination as! UINavigationController
+            let spelDetailsViewController = navigationController.topViewController as! SpelDetailsViewController
+            // END SOURCE
             let indexPath = tableView.indexPathForSelectedRow!
             let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
             spelDetailsViewController.spel = selectedSpel
