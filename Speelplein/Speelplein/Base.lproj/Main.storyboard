@@ -63,6 +63,9 @@
                         <viewLayoutGuide key="safeArea" id="FWP-QC-IJF"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Random" image="first" id="MLk-ne-e9a"/>
+                    <connections>
+                        <outlet property="randomizeButton" destination="dPm-4F-Wfi" id="lHq-V3-3BN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="362-TN-Rdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

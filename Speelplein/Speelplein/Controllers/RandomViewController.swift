@@ -12,6 +12,8 @@ class RandomViewController: UIViewController {
     var categories = [Categorie]()
     var categorie: PossibleCategorie?
     
+    @IBOutlet weak var randomizeButton: UIButton!
+    
     @IBAction func unwindToRandom(segue: UIStoryboardSegue) {
         
     }
@@ -33,6 +35,14 @@ class RandomViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let tabbar = tabBarController as! MainTabBarController
         categories = tabbar.categories
+    }
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            randomizeButton.sendActions(for: .touchUpInside)
+        }
     }
     
     // helper function

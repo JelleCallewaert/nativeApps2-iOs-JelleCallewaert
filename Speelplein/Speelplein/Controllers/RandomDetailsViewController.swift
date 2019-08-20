@@ -19,4 +19,6 @@ class RandomDetailsViewController: UIViewController {
         randomTitelLabel.text = spel?.titel
         randomBeschrijvingLabel.text = spel?.beschrijving
     }
+    
+    
 }
