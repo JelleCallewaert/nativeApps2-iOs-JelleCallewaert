@@ -31,7 +31,7 @@
         <!--Random-->
         <scene sceneID="Pdk-Py-66F">
             <objects>
-                <viewController id="vwi-kI-kTs" sceneMemberID="viewController">
+                <viewController id="vwi-kI-kTs" customClass="RandomViewController" customModule="Speelplein" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sdb-lo-zqn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPm-4F-Wfi">
                                         <rect key="frame" x="0.0" y="67" width="256.5" height="30"/>
                                         <state key="normal" title="Randomize"/>
+                                        <connections>
+                                            <segue destination="mWe-OQ-3im" kind="show" identifier="showRandomDetails" id="cer-lj-ZU6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -458,6 +461,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cer-lj-ZU6"/>
         <segue reference="9R8-cn-o6F"/>
     </inferredMetricsTieBreakers>
 </document>
