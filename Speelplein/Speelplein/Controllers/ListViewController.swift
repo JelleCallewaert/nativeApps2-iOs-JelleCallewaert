@@ -61,7 +61,6 @@ class ListViewController: UITableViewController {
             let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
             spelDetailsViewController.spel = selectedSpel
             spelDetailsViewController.categorie = categories[indexPath.section].naam
-            spelDetailsViewController.mode = .details
         }
     }
     

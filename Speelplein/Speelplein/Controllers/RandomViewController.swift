@@ -12,13 +12,16 @@ class RandomViewController: UIViewController {
     var categories = [Categorie]()
     var categorie: PossibleCategorie?
     
+    @IBAction func unwindToRandom(segue: UIStoryboardSegue) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRandomDetails" {
             let navController = segue.destination as! UINavigationController
-            let spelDetailsViewController = navController.topViewController as! SpelDetailsViewController
-            spelDetailsViewController.spel = selectRandomSpel()
-            spelDetailsViewController.categorie = categorie
-            spelDetailsViewController.mode = .random
+            let randomDetailsViewController = navController.topViewController as! RandomDetailsViewController
+            randomDetailsViewController.spel = selectRandomSpel()
+            randomDetailsViewController.categorie = categorie
         }
     }
     

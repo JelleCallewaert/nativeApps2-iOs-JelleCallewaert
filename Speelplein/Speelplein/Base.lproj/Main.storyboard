@@ -49,7 +49,7 @@
                                         <rect key="frame" x="0.0" y="67" width="256.5" height="30"/>
                                         <state key="normal" title="Randomize"/>
                                         <connections>
-                                            <segue destination="mWe-OQ-3im" kind="show" identifier="showRandomDetails" id="cer-lj-ZU6"/>
+                                            <segue destination="RKh-NJ-Im2" kind="show" identifier="showRandomDetails" id="OSr-mg-PBO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -155,14 +155,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="beschrijvingLabel" destination="S9F-PL-4az" id="aKg-fZ-5s2"/>
-                        <outlet property="editButton" destination="Mbm-tB-rSJ" id="GnN-1V-sdm"/>
                         <outlet property="titelLabel" destination="d2r-oC-Ukw" id="lHD-kA-RtJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZ0-Br-K25" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Pv2-QK-FAx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3800.8000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="3812" y="359"/>
         </scene>
         <!--Nieuw Spel-->
         <scene sceneID="MuI-NH-NKt">
@@ -403,7 +402,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36F-QF-yok" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KER-uD-Q7H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3812" y="-369.26536731634184"/>
+            <point key="canvasLocation" x="3812" y="1128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ChW-3K-aED">
@@ -419,7 +418,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jbl-Gi-rxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2863" y="-369"/>
+            <point key="canvasLocation" x="2862" y="1128"/>
         </scene>
         <!--All-->
         <scene sceneID="bd4-R1-2lN">
@@ -456,13 +455,80 @@
             </objects>
             <point key="canvasLocation" x="2861.5999999999999" y="359.37031484257875"/>
         </scene>
+        <!--Random Details View Controller-->
+        <scene sceneID="dqG-sg-yjm">
+            <objects>
+                <viewController id="Mqs-6Q-w1Z" customClass="RandomDetailsViewController" customModule="Speelplein" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0N-x1-tfI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="8pN-uq-R53">
+                                <rect key="frame" x="152" y="243.5" width="71" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfo-mR-UHb">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="36"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks1-mU-FRB">
+                                        <rect key="frame" x="0.0" y="156" width="71" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8pN-uq-R53" firstAttribute="centerY" secondItem="U0N-x1-tfI" secondAttribute="centerY" id="Xzv-If-nqB"/>
+                            <constraint firstItem="8pN-uq-R53" firstAttribute="centerX" secondItem="U0N-x1-tfI" secondAttribute="centerX" id="Zvc-TK-qJx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q6l-rS-B00"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4fv-HK-fZ6">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="w2C-D7-y2H">
+                            <connections>
+                                <segue destination="WAo-As-HFC" kind="unwind" unwindAction="unwindToRandomWithSegue:" id="hhY-aq-rwm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="randomBeschrijvingLabel" destination="ks1-mU-FRB" id="H10-RR-8ej"/>
+                        <outlet property="randomTitelLabel" destination="lfo-mR-UHb" id="dRC-CE-C14"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lvr-Mf-DM2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WAo-As-HFC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2862" y="-369"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="881-dw-Lin">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RKh-NJ-Im2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KwA-A1-7SF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mqs-6Q-w1Z" kind="relationship" relationship="rootViewController" id="1h3-FC-0rr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pbp-ef-Mjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="-369"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cer-lj-ZU6"/>
         <segue reference="9R8-cn-o6F"/>
     </inferredMetricsTieBreakers>
 </document>

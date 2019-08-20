@@ -14,6 +14,7 @@
 		6046CA1723082BCD00297047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6046CA1523082BCD00297047 /* LaunchScreen.storyboard */; };
 		6046CA1F23082CC100297047 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046CA1E23082CC100297047 /* ListViewController.swift */; };
 		60BC649F230C307000B2F6FA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BC649E230C307000B2F6FA /* MainTabBarController.swift */; };
+		60BC64A1230C531000B2F6FA /* RandomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BC64A0230C531000B2F6FA /* RandomDetailsViewController.swift */; };
 		60F4440123083269009640B1 /* Spel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4440023083269009640B1 /* Spel.swift */; };
 		60F4440323083293009640B1 /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4440223083293009640B1 /* Categorie.swift */; };
 		60F444052308A8DB009640B1 /* SpelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F444042308A8DB009640B1 /* SpelTableViewController.swift */; };
@@ -30,6 +31,7 @@
 		6046CA1823082BCD00297047 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6046CA1E23082CC100297047 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		60BC649E230C307000B2F6FA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		60BC64A0230C531000B2F6FA /* RandomDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDetailsViewController.swift; sourceTree = "<group>"; };
 		60F4440023083269009640B1 /* Spel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spel.swift; sourceTree = "<group>"; };
 		60F4440223083293009640B1 /* Categorie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
 		60F444042308A8DB009640B1 /* SpelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpelTableViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				60F444042308A8DB009640B1 /* SpelTableViewController.swift */,
 				60F44406230ABB32009640B1 /* SpelDetailsViewController.swift */,
 				60BC649E230C307000B2F6FA /* MainTabBarController.swift */,
+				60BC64A0230C531000B2F6FA /* RandomDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6046CA0B23082BCB00297047 /* AppDelegate.swift in Sources */,
+				60BC64A1230C531000B2F6FA /* RandomDetailsViewController.swift in Sources */,
 				60F4440323083293009640B1 /* Categorie.swift in Sources */,
 				60BC649F230C307000B2F6FA /* MainTabBarController.swift in Sources */,
 				60F4440123083269009640B1 /* Spel.swift in Sources */,

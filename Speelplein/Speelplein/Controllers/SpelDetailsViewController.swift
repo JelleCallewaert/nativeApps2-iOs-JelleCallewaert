@@ -11,11 +11,9 @@ import UIKit
 class SpelDetailsViewController: UIViewController {
     var spel: Spel?
     var categorie: PossibleCategorie?
-    var mode: Mode?
     
     @IBOutlet weak var titelLabel: UILabel!
     @IBOutlet weak var beschrijvingLabel: UILabel!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditSpel" {
@@ -29,13 +27,5 @@ class SpelDetailsViewController: UIViewController {
     override func viewDidLoad() {
         titelLabel.text = spel?.titel
         beschrijvingLabel.text = spel?.beschrijving
-        if mode == .random {
-            editButton.isEnabled = false
-        }
     }
-}
-
-enum Mode {
-    case details
-    case random
 }
