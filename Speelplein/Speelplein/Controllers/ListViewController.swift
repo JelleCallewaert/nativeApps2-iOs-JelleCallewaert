@@ -25,19 +25,19 @@ class ListViewController: UITableViewController {
                     var newIndexPath: IndexPath!
                     if cat == .kleuters {
                         newIndexPath = IndexPath(row: self.categories[0].spelen.count, section: 0)
-                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                        addCell(indexPath: newIndexPath, spel: spel)
                     }
                     if cat == .creatief {
                         newIndexPath = IndexPath(row: self.categories[1].spelen.count, section: 1)
-                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                        addCell(indexPath: newIndexPath, spel: spel)
                     }
                     if cat == .actief {
                         newIndexPath = IndexPath(row: self.categories[2].spelen.count, section: 2)
-                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                        addCell(indexPath: newIndexPath, spel: spel)
                     }
                     if cat == .kastaards {
                         newIndexPath = IndexPath(row: self.categories[3].spelen.count, section: 3)
-                        addOrEditCell(indexPath: newIndexPath, spel: spel)
+                        addCell(indexPath: newIndexPath, spel: spel)
                     }
                 }
             }
@@ -45,8 +45,9 @@ class ListViewController: UITableViewController {
     }
     
     // Helper functions
-    func addOrEditCell(indexPath: IndexPath, spel: Spel) {
+    func addCell(indexPath: IndexPath, spel: Spel) {
         self.categories[indexPath.section].spelen.append(spel)
+        updateAll()
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
@@ -60,17 +61,20 @@ class ListViewController: UITableViewController {
             let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
             spelDetailsViewController.spel = selectedSpel
             spelDetailsViewController.categorie = categories[indexPath.section].naam
+            spelDetailsViewController.mode = .details
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-        if let savedCategories = Categorie.loadCategories() {
-            categories = savedCategories
-        } else {
-            categories = Categorie.loadSampleCategories()
-        }
+        let tabbar = tabBarController as! MainTabBarController
+        categories = tabbar.categories
+    }
+    
+    func updateAll() {
+        let tabbar = tabBarController as! MainTabBarController
+        tabbar.categories = categories
     }
     
     // TableView overrides
@@ -93,6 +97,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             categories[indexPath.section].spelen.remove(at: indexPath.row)
+            updateAll()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

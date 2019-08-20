@@ -10,32 +10,33 @@ import UIKit
 
 class RandomViewController: UIViewController {
     var categories = [Categorie]()
-    
-    @IBAction func randomizeButtonClicked(_ sender: UIButton) {
-        print("random clicked")
-    }
+    var categorie: PossibleCategorie?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRandomDetails" {
             let navController = segue.destination as! UINavigationController
             let spelDetailsViewController = navController.topViewController as! SpelDetailsViewController
             spelDetailsViewController.spel = selectRandomSpel()
+            spelDetailsViewController.categorie = categorie
+            spelDetailsViewController.mode = .random
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-        if let savedCategories = Categorie.loadCategories() {
-            categories = savedCategories
-        } else {
-            categories = Categorie.loadSampleCategories()
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let tabbar = tabBarController as! MainTabBarController
+        categories = tabbar.categories
     }
     
     // helper function
     func selectRandomSpel() -> Spel {
         let randomCatIndex = Int.random(in: 0 ..< categories.count)
+        categorie = categories[randomCatIndex].naam
+        guard categories[randomCatIndex].spelen.count > 0 else { return Spel(titel: "Error", beschrijving: "Geen spelen gevonden in categorie " + categorie!.rawValue )}
         let randomSpelIndex = Int.random(in: 0 ..< categories[randomCatIndex].spelen.count)
         let spel = categories[randomCatIndex].spelen[randomSpelIndex]
         return spel
