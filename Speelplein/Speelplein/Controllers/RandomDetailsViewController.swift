@@ -8,17 +8,29 @@
 
 import UIKit
 
+@objc protocol RandomDetailsDelegate: class {
+    func shakeDetected(sender: RandomDetailsViewController)
+}
 class RandomDetailsViewController: UIViewController {
     var spel: Spel?
     var categorie: PossibleCategorie?
+    var delegate: RandomDetailsDelegate?
     
     @IBOutlet weak var randomTitelLabel: UILabel!
     @IBOutlet weak var randomBeschrijvingLabel: UILabel!
     
     override func viewDidLoad() {
+        updateView()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            delegate?.shakeDetected(sender: self)
+        }
+    }
+    
+    func updateView() {
         randomTitelLabel.text = spel?.titel
         randomBeschrijvingLabel.text = spel?.beschrijving
     }
-    
-    
 }

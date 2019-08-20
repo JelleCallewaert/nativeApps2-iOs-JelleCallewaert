@@ -8,7 +8,8 @@
 
 import UIKit
 
-class RandomViewController: UIViewController {
+class RandomViewController: UIViewController, RandomDetailsDelegate {
+    var spel: Spel?
     var categories = [Categorie]()
     var categorie: PossibleCategorie?
     
@@ -18,12 +19,21 @@ class RandomViewController: UIViewController {
         
     }
     
+    func shakeDetected(sender: RandomDetailsViewController) {
+        selectRandomSpel()
+        sender.spel = spel
+        sender.categorie = categorie
+        sender.updateView()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRandomDetails" {
+            selectRandomSpel()
             let navController = segue.destination as! UINavigationController
             let randomDetailsViewController = navController.topViewController as! RandomDetailsViewController
-            randomDetailsViewController.spel = selectRandomSpel()
+            randomDetailsViewController.spel = spel
             randomDetailsViewController.categorie = categorie
+            randomDetailsViewController.delegate = self
         }
     }
     
@@ -46,13 +56,16 @@ class RandomViewController: UIViewController {
     }
     
     // helper function
-    func selectRandomSpel() -> Spel {
+    func selectRandomSpel() {
         let randomCatIndex = Int.random(in: 0 ..< categories.count)
         categorie = categories[randomCatIndex].naam
-        guard categories[randomCatIndex].spelen.count > 0 else { return Spel(titel: "Error", beschrijving: "Geen spelen gevonden in categorie " + categorie!.rawValue )}
+        guard categories[randomCatIndex].spelen.count > 0 else {
+            self.spel = Spel(titel: "Error", beschrijving: "Geen spelen gevonden in categorie " + categorie!.rawValue)
+            return
+        }
         let randomSpelIndex = Int.random(in: 0 ..< categories[randomCatIndex].spelen.count)
         let spel = categories[randomCatIndex].spelen[randomSpelIndex]
-        return spel
+        self.spel = spel
     }
 
 }
