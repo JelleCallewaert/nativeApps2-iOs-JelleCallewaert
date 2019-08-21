@@ -13,7 +13,6 @@ import UIKit
 }
 class RandomDetailsViewController: UIViewController {
     var spel: Spel?
-    var categorie: PossibleCategorie?
     var delegate: RandomDetailsDelegate?
     
     @IBOutlet weak var randomTitelLabel: UILabel!

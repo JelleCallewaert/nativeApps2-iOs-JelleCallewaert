@@ -44,19 +44,17 @@ class ListViewController: UITableViewController {
         }
     }
     
-    // Helper functions
+    // Helper function
     func addCell(indexPath: IndexPath, spel: Spel) {
         self.categories[indexPath.section].spelen.append(spel)
-        updateAll()
         tableView.insertRows(at: [indexPath], with: .automatic)
+        updateSpelen()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
-            // SOURCE: https://stackoverflow.com/questions/28788416/swift-prepareforsegue-with-navigation-controller
             let navigationController = segue.destination as! UINavigationController
             let spelDetailsViewController = navigationController.topViewController as! SpelDetailsViewController
-            // END SOURCE
             let indexPath = tableView.indexPathForSelectedRow!
             let selectedSpel = categories[indexPath.section].spelen[indexPath.row]
             spelDetailsViewController.spel = selectedSpel
@@ -67,11 +65,11 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-        let tabbar = tabBarController as! MainTabBarController
-        categories = tabbar.categories
+        let mainTabBarController = tabBarController as! MainTabBarController
+        categories = mainTabBarController.categories
     }
     
-    func updateAll() {
+    func updateSpelen() {
         let tabbar = tabBarController as! MainTabBarController
         tabbar.categories = categories
     }
@@ -96,8 +94,8 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             categories[indexPath.section].spelen.remove(at: indexPath.row)
-            updateAll()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            updateSpelen()
         }
     }
 }

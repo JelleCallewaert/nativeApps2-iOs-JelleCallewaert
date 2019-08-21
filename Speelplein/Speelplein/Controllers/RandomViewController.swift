@@ -9,9 +9,8 @@
 import UIKit
 
 class RandomViewController: UIViewController, RandomDetailsDelegate {
-    var spel: Spel?
     var categories = [Categorie]()
-    var categorie: PossibleCategorie?
+    var spel: Spel?
     
     @IBOutlet weak var randomizeButton: UIButton!
     
@@ -22,7 +21,6 @@ class RandomViewController: UIViewController, RandomDetailsDelegate {
     func shakeDetected(sender: RandomDetailsViewController) {
         selectRandomSpel()
         sender.spel = spel
-        sender.categorie = categorie
         sender.updateView()
     }
     
@@ -32,20 +30,15 @@ class RandomViewController: UIViewController, RandomDetailsDelegate {
             let navController = segue.destination as! UINavigationController
             let randomDetailsViewController = navController.topViewController as! RandomDetailsViewController
             randomDetailsViewController.spel = spel
-            randomDetailsViewController.categorie = categorie
             randomDetailsViewController.delegate = self
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem
+    override func viewWillAppear(_ animated: Bool) {
+        let mainTabBarController = tabBarController as! MainTabBarController
+        categories = mainTabBarController.categories
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        let tabbar = tabBarController as! MainTabBarController
-        categories = tabbar.categories
-    }
     override func becomeFirstResponder() -> Bool {
         return true
     }
@@ -57,16 +50,18 @@ class RandomViewController: UIViewController, RandomDetailsDelegate {
     
     // helper function
     func selectRandomSpel() {
-        let randomCatIndex = Int.random(in: 0 ..< categories.count)
-        categorie = categories[randomCatIndex].naam
-        guard categories[randomCatIndex].spelen.count > 0 else {
-            self.spel = Spel(titel: "Error", beschrijving: "Geen spelen gevonden in categorie " + categorie!.rawValue)
+        var nietLegeCategorieen = [Categorie]()
+        for cat in categories {
+            if !cat.spelen.isEmpty {
+                nietLegeCategorieen.append(cat)
+            }
+        }
+        guard !nietLegeCategorieen.isEmpty else {
+            spel = Spel(titel: "Error", beschrijving: "Geen spelen gevonden ..")
             return
         }
-        let randomSpelIndex = Int.random(in: 0 ..< categories[randomCatIndex].spelen.count)
-        let spel = categories[randomCatIndex].spelen[randomSpelIndex]
-        self.spel = spel
+        let randomCategorieIndex = Int.random(in: 0 ..< nietLegeCategorieen.count)
+        let randomSpelIndex = Int.random(in: 0 ..< nietLegeCategorieen[randomCategorieIndex].spelen.count)
+        spel = nietLegeCategorieen[randomCategorieIndex].spelen[randomSpelIndex]
     }
-
 }
-

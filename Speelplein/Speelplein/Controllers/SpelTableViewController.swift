@@ -58,8 +58,7 @@ class SpelTableViewController: UITableViewController {
         let titel = spelTitelField.text ?? ""
         let aCategorieSelected = kleuterSwitch.isOn || creatiefSwitch.isOn || actiefSwitch.isOn || kastaardsSwitch.isOn
         
-        let enabled = !titel.isEmpty
-            && aCategorieSelected
+        let enabled = !titel.isEmpty && aCategorieSelected
         saveButton.isEnabled = enabled
     }
     func changeCategories() {

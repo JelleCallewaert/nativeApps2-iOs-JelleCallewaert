@@ -20,7 +20,7 @@ class SpelDetailsViewController: UIViewController {
             let navigationController = segue.destination as! UINavigationController
             let spelTableViewController = navigationController.topViewController as! SpelTableViewController
             spelTableViewController.spel = spel
-            spelTableViewController.selectedCategories = [categorie] as! [PossibleCategorie]
+            spelTableViewController.selectedCategories.append(categorie!)
         }
     }
     
