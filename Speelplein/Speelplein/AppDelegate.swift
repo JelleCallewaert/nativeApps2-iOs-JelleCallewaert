@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Speelplein Grabbis
+//  Speelplein
 //
-//  Created by Jelle Callewaert on 16/08/19.
+//  Created by Jelle Callewaert on 17/08/19.
 //  Copyright © 2019 Jelle Callewaert. All rights reserved.
 //
 
