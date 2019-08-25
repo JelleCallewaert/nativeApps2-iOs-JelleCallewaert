@@ -11,6 +11,8 @@ import UIKit
 class ListViewController: UITableViewController {
     var categories = [Categorie]()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveSpelUnwind" else { return }
         let sourceViewController = segue.source as! SpelTableViewController
@@ -70,8 +72,8 @@ class ListViewController: UITableViewController {
     }
     
     func updateSpelen() {
-        let tabbar = tabBarController as! MainTabBarController
-        tabbar.categories = categories
+        let mainTabBarController = tabBarController as! MainTabBarController
+        mainTabBarController.categories = categories
     }
     
     // TableView overrides
@@ -97,5 +99,42 @@ class ListViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
             updateSpelen()
         }
+    }
+}
+
+extension ListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        if searchText.isEmpty {
+            resetSearch()
+        } else {
+            filterSearch(searchText: searchText)
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        tableView.reloadData()
+        searchBar.resignFirstResponder()
+        let cancelbutton = self.searchBar.value(forKey: "_cancelButton") as! UIButton
+        cancelbutton.isEnabled = true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        resetSearch()
+        tableView.reloadData()
+    }
+    
+    func filterSearch(searchText: String) {
+        var filteredCategories = [Categorie]()
+        categories.forEach {
+            var filteredCat = Categorie(naam: $0.naam, spelen: [Spel]())
+            filteredCat.spelen = $0.spelen.filter({$0.titel.lowercased().contains(searchText.lowercased())})
+            filteredCategories.append(filteredCat)
+        }
+        categories = filteredCategories
+    }
+    func resetSearch() {
+        let mainTabBarController = tabBarController as! MainTabBarController
+        categories = mainTabBarController.categories
     }
 }
