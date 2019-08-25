@@ -105,7 +105,6 @@ class ListViewController: UITableViewController {
 extension ListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
         if searchText.isEmpty {
             resetSearch()
         } else {
@@ -115,7 +114,7 @@ extension ListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         tableView.reloadData()
         searchBar.resignFirstResponder()
-        let cancelbutton = self.searchBar.value(forKey: "_cancelButton") as! UIButton
+        let cancelbutton = searchBar.value(forKey: "_cancelButton") as! UIButton
         cancelbutton.isEnabled = true
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
