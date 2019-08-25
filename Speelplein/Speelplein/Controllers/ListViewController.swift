@@ -119,6 +119,7 @@ extension ListViewController: UISearchBarDelegate {
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        searchBar.resignFirstResponder()
         resetSearch()
         tableView.reloadData()
     }
