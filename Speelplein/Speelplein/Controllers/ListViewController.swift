@@ -86,7 +86,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpelCell")
             else { fatalError("Could not dequeue") }
-        let spel = self.categories[indexPath.section].spelen[indexPath.row]
+        let spel = categories[indexPath.section].spelen[indexPath.row]
         cell.textLabel?.text = spel.titel
         return cell
     }
@@ -95,9 +95,11 @@ class ListViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let spel = categories[indexPath.section].spelen[indexPath.row]
             categories[indexPath.section].spelen.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            updateSpelen()
+            let mainTabBarController = tabBarController as! MainTabBarController
+            mainTabBarController.removeSpel(section: indexPath.section, spel: spel)
         }
     }
 }
