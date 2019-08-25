@@ -19,4 +19,12 @@ class MainTabBarController: UITabBarController {
             categories = Categorie.loadSampleCategories()
         }
     }
+    
+    func removeSpel(section: Int, spel: Spel) {
+        let categorie = categories[section]
+        let spelen = categorie.spelen.filter({
+            $0.titel != spel.titel
+        })
+        categories[section].spelen = spelen
+    }
 }
